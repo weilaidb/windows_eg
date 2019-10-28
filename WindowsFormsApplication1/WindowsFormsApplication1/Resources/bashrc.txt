@@ -1,0 +1,5 @@
+alias ll='ls -lh'
+
+dos2unix bashrc.txt
+
+

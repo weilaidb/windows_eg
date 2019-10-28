@@ -61,6 +61,20 @@ namespace WindowsFormsApplication1 {
         }
         
         /// <summary>
+        ///   查找类似 alias ll=&apos;ls -lh&apos;
+        ///
+        ///dos2unix bashrc.txt
+        ///
+        ///
+        /// 的本地化字符串。
+        /// </summary>
+        internal static string bashrc {
+            get {
+                return ResourceManager.GetString("bashrc", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 Visual Studio 2017 常用快捷键
         ///1、窗口快捷键
         ///复制代码
@@ -95,6 +109,16 @@ namespace WindowsFormsApplication1 {
         internal static string 人生 {
             get {
                 return ResourceManager.GetString("人生", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
+        internal static System.Drawing.Bitmap 捕获 {
+            get {
+                object obj = ResourceManager.GetObject("捕获", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
             }
         }
         

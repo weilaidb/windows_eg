@@ -117,6 +117,10 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="bashrc" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\bashrc.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;gb2312</value>
+  </data>
   <data name="Visual_Studio_2017_常用快捷键" xml:space="preserve">
     <value>Visual Studio 2017 常用快捷键
 1、窗口快捷键
@@ -218,6 +222,9 @@ happyzwt的分享
   </data>
   <data name="人生" xml:space="preserve">
     <value />
+  </data>
+  <data name="捕获" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\捕获.JPG;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="白马" xml:space="preserve">
     <value />
