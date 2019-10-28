@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using FM = System.Windows.Forms;
+using System.IO;
 
 namespace WindowsFormsApplication1
 {
@@ -25,6 +27,9 @@ namespace WindowsFormsApplication1
             eg7_convert();
             eg8_sum();
             eg9_multiply();
+            eg10_exception();
+            eg11_file_wr();
+            this.richTextBox1.Text = libai.Visual_Studio_2017_常用快捷键;
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -127,7 +132,7 @@ namespace WindowsFormsApplication1
         private void eg8_sum()
         {
             int[] n = new int[10];
-            for (int i =  0; i < n.Length; i++)
+            for (int i = 0; i < n.Length; i++)
             {
                 n[i] = i + 1;
             }
@@ -146,17 +151,84 @@ namespace WindowsFormsApplication1
             string[,] t = new string[9, 9];
             string result = "";
             int R, C;
-            for(int r = 0; r < 9; r++)
+            for (int r = 0; r < 9; r++)
             {
                 result += "\n";
                 R = r + 1;
-                for(int c = 0; c <= r; c++)
+                for (int c = 0; c <= r; c++)
                 {
                     C = c + 1;
                     result += C + "*" + R + "=" + (R * C) + " ";
                 }
             }
-            MessageBox.Show(result);
+            //MessageBox.Show(result);
+            //FM.MessageBox.Show(result);
+            Console.WriteLine(result);
         }
+
+        private void eg10_exception()
+        {
+            string result = "";
+            try
+            {
+                int[] i = { 1, 3, 4, 5, };
+                result = i[3].ToString();
+            }
+            catch (SystemException ex)
+            {
+                result = ex.Message;
+            }
+            finally
+            {
+                result += "\nfinally";
+            }
+            Console.WriteLine(result);
+        }
+
+        private void eg11_file_wr()
+        {
+            string path = @"F:\a.txt";
+            try
+            {
+                FileStream fs = new FileStream(path, FileMode.OpenOrCreate);
+                StreamWriter sw = new StreamWriter(fs);
+                //开始写入
+                sw.WriteLine("Hello VSTO");
+                sw.WriteLine("Second line");
+                sw.WriteLine("3th line");
+
+                //清空缓冲区
+                sw.Flush();
+                //关闭流
+                sw.Close();
+                fs.Close();
+            } 
+            catch (SystemException e)
+            {
+
+            }
+
+
+            try { 
+                //读入内容 
+                StreamReader sr = new StreamReader(path, Encoding.Default);
+                String line;
+                String result = "";
+                while((line = sr.ReadLine()) != null)
+                {
+                    result = line + "\n";
+                }
+                Console.WriteLine(result);
+            }
+            catch(SystemException e)
+            {
+
+            }
+        }
+
+
+
     }
+
+
 }

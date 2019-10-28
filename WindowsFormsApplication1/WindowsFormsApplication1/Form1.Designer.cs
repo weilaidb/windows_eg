@@ -40,6 +40,8 @@
             this.listBox1 = new System.Windows.Forms.ListBox();
             this.maskedTextBox1 = new System.Windows.Forms.MaskedTextBox();
             this.monthCalendar1 = new System.Windows.Forms.MonthCalendar();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
             this.SuspendLayout();
             // 
             // button1
@@ -146,11 +148,28 @@
             this.monthCalendar1.Name = "monthCalendar1";
             this.monthCalendar1.TabIndex = 11;
             // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(409, 220);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(220, 21);
+            this.textBox1.TabIndex = 12;
+            // 
+            // richTextBox1
+            // 
+            this.richTextBox1.Location = new System.Drawing.Point(409, 248);
+            this.richTextBox1.Name = "richTextBox1";
+            this.richTextBox1.Size = new System.Drawing.Size(220, 145);
+            this.richTextBox1.TabIndex = 13;
+            this.richTextBox1.Text = "";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(729, 405);
+            this.Controls.Add(this.richTextBox1);
+            this.Controls.Add(this.textBox1);
             this.Controls.Add(this.monthCalendar1);
             this.Controls.Add(this.maskedTextBox1);
             this.Controls.Add(this.listBox1);
@@ -184,6 +203,8 @@
         private System.Windows.Forms.ListBox listBox1;
         private System.Windows.Forms.MaskedTextBox maskedTextBox1;
         private System.Windows.Forms.MonthCalendar monthCalendar1;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.RichTextBox richTextBox1;
     }
 }
 
