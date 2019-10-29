@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using FM = System.Windows.Forms;
 using System.IO;
+using System.Text.RegularExpressions;
 
 namespace WindowsFormsApplication1
 {
@@ -223,6 +224,26 @@ namespace WindowsFormsApplication1
             catch(SystemException e)
             {
 
+            }
+        }
+
+        private void Form1_Load_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            string Source = "12345678901";
+            Regex obj = new Regex(@"[\d]{11}", RegexOptions.None);
+            bool result = obj.IsMatch(Source);
+            if(true == result)
+            {
+                Console.WriteLine(Source + "\n包含一个手机号码");
+            }
+            else
+            {
+                Console.WriteLine(Source + "\n不包含一个手机号码");
             }
         }
 
