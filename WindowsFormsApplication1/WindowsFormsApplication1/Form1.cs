@@ -247,6 +247,18 @@ namespace WindowsFormsApplication1
             }
         }
 
+        private void button3_Click(object sender, EventArgs e)
+        {
+            string Source = "this.textBox1.Text.China.WorLD";
+            Regex obj = new Regex(@"China", RegexOptions.None);
+            this.textBox1.Text = obj.Replace(Source, "中国");
+
+            obj = new Regex(@"world", RegexOptions.IgnoreCase);
+            this.textBox1.Text = obj.Replace(this.textBox1.Text, "世界");
+
+
+        }
+
 
 
     }
