@@ -28,6 +28,7 @@ namespace WindowsFormsApplication1
 
     public partial class Form1 : Form
     {
+        ListBox LB;
         public Form1()
         {
             InitializeComponent();
@@ -202,42 +203,45 @@ namespace WindowsFormsApplication1
         private void eg11_file_wr()
         {
             string path = @"F:\a.txt";
-            try
-            {
-                FileStream fs = new FileStream(path, FileMode.OpenOrCreate);
-                StreamWriter sw = new StreamWriter(fs);
-                //开始写入
-                sw.WriteLine("Hello VSTO");
-                sw.WriteLine("Second line");
-                sw.WriteLine("3th line");
+            //try
+            //{
+            //    FileStream fs = new FileStream(path, FileMode.CreateNew);
+            //    StreamWriter sw = new StreamWriter(fs);
+            //    //开始写入
+            //    sw.WriteLine("Hello VSTO");
+            //    sw.WriteLine("Second line");
+            //    sw.WriteLine("3th line");
 
-                //清空缓冲区
-                sw.Flush();
-                //关闭流
-                sw.Close();
-                fs.Close();
-            } 
-            catch (SystemException e)
-            {
+            //    //清空缓冲区
+            //    sw.Flush();
+            //    //关闭流
+            //    sw.Close();
+            //    fs.Close();
+            //} 
+            //catch (SystemException e)
+            //{
 
-            }
+            //}
 
 
-            try { 
-                //读入内容 
-                StreamReader sr = new StreamReader(path, Encoding.Default);
-                String line;
-                String result = "";
-                while((line = sr.ReadLine()) != null)
-                {
-                    result = line + "\n";
-                }
-                Console.WriteLine(result);
-            }
-            catch(SystemException e)
-            {
+            //try
+            //{
+            //    //读入内容 
+            //    StreamReader sr = new StreamReader(path, Encoding.Default);
+            //    String line;
+            //    String result = "";
+            //    while ((line = sr.ReadLine()) != null)
+            //    {
+            //        result = line + "\n";
+            //    }
+            //    Console.WriteLine(result);
+            //}
+            //catch (SystemException e)
+            //{
 
-            }
+            //}
+
+
         }
 
         private void Form1_Load_1(object sender, EventArgs e)
@@ -417,6 +421,42 @@ namespace WindowsFormsApplication1
             Counter.times++;
             this.button2.Text = "已经单击:" + Counter.times + "次。";
         }
+
+        private void button16_Click(object sender, EventArgs e)
+        {
+            egfile eg = new egfile();
+            eg.proc_file_dir();
+        }
+
+        private void button17_Click(object sender, EventArgs e)
+        {
+            LB = new ListBox();
+            LB.Left = 30;
+            LB.Top = 50;
+            LB.Visible = true;
+            LB.Items.Add("张三");
+            LB.Items.Add("李四");
+            this.Controls.Add(LB);
+            LB.DoubleClick += new EventHandler(List_DblClick);
+            
+        }
+
+        private void List_DblClick(object sender, EventArgs e)
+        {
+            MessageBox.Show(LB.Text); 
+        }
+
+        [DllImport("user32.dll")]
+        private static extern int GetCursorPos(out Point lpPoint);
+
+        private void Form1_MouseMove(object sender, MouseEventArgs e)
+        {
+            Point p = new Point();
+            GetCursorPos(out p);
+            this.textBox1.Text = (p.ToString());
+        }
+
+
 
 
 
