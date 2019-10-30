@@ -10,6 +10,8 @@ using System.Windows.Forms;
 using FM = System.Windows.Forms;
 using System.IO;
 using System.Text.RegularExpressions;
+using System.Collections.Generic;
+using System.Threading;
 
 namespace WindowsFormsApplication1
 {
@@ -282,6 +284,93 @@ namespace WindowsFormsApplication1
             }
             MessageBox.Show(result);
         }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            Dictionary<string, int> population = new System.Collections.Generic.Dictionary<string, int>();
+            population.Clear();
+            population.Add("Russia", 1707);
+            population.Add("Candana", 233);
+            population.Add("China", 960);
+            population.Add("America", 122);
+            population.Add("Brazil", 854);
+
+            population.Remove("Candana");
+
+            int cnt = population.Count;
+
+            bool hasKey = population.ContainsKey("China");
+
+            bool hasValue = population.ContainsValue(850);
+
+            foreach (KeyValuePair<string, int> kvp in population)
+            {
+                MessageBox.Show(kvp.Key + kvp.Value);
+            }
+
+            //遍历所有键名
+            foreach(string key in population.Keys)
+            {
+                MessageBox.Show(key);
+            }
+
+            //遍历所有值
+            foreach(int val in population.Values)
+            {
+                MessageBox.Show(val.ToString());
+            }
+
+
+
+        }
+
+        private void button7_Click(object sender, EventArgs e)
+        {
+            //去除重复
+            string[] arr = { "李白", "杜甫", "白居易", "杜甫", "李商隐", "贺知章", "白居易", "孟浩然", "李商隐" };
+            Dictionary<string, string> dic = new Dictionary<string, string>();
+            foreach(string s in arr)
+            {
+                if(dic.ContainsKey(s) == false)
+                {
+                    dic.Add(s, "");
+                }
+            }
+
+            foreach(string k in dic.Keys)
+            {
+                MessageBox.Show(k);
+            }
+        }
+
+        private void button8_Click(object sender, EventArgs e)
+        {
+            Form1 fm2 = new Form1();
+            fm2.Show();
+        }
+
+        private void button9_Click(object sender, EventArgs e)
+        {
+            Form1 fm2 = new Form1();
+            fm2.Show(this);
+        }
+
+        private void button10_Click(object sender, EventArgs e)
+        {
+            Form1 fm2 = new Form1();
+            fm2.ShowDialog();
+        }
+
+        private void button11_Click(object sender, EventArgs e)
+        {
+            Form1 fm2 = new Form1();
+
+            fm2.Show();
+            Thread.Sleep(10000);            
+            fm2.Dispose();
+        }
+
+
 
 
 
