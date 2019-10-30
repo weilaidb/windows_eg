@@ -412,6 +412,12 @@ namespace WindowsFormsApplication1
             MessageBox.Show(U.countCapital("Microsoft Office PPT").ToString());
         }
 
+        private void button15_Click(object sender, EventArgs e)
+        {
+            Counter.times++;
+            this.button2.Text = "已经单击:" + Counter.times + "次。";
+        }
+
 
 
 
