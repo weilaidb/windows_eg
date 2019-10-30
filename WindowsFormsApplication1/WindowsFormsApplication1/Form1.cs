@@ -14,6 +14,8 @@ using System.Collections.Generic;
 using System.Threading;
 using System.Runtime.InteropServices;
 using VB = Microsoft.VisualBasic;
+using Office = Microsoft.Office.Interop;
+
 
 
 //[DllImport("user32.dll",EntryPoint = "FindWindowA")]
@@ -451,9 +453,9 @@ namespace WindowsFormsApplication1
 
         private void Form1_MouseMove(object sender, MouseEventArgs e)
         {
-            Point p = new Point();
-            GetCursorPos(out p);
-            this.textBox1.Text = (p.ToString());
+            //Point p = new Point();
+            //GetCursorPos(out p);
+            //this.textBox1.Text = (p.ToString());
         }
 
 
