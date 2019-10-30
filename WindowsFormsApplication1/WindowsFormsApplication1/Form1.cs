@@ -231,7 +231,7 @@ namespace WindowsFormsApplication1
 
         private void Form1_Load_1(object sender, EventArgs e)
         {
-
+            //MessageBox.Show("加载窗体中");
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -368,6 +368,11 @@ namespace WindowsFormsApplication1
             fm2.Show();
             Thread.Sleep(10000);            
             fm2.Dispose();
+        }
+
+        private void Form1_Resize(object sender, EventArgs e)
+        {
+            this.Text = this.Width + "  " + this.Height;
         }
 
 
