@@ -12,9 +12,20 @@ using System.IO;
 using System.Text.RegularExpressions;
 using System.Collections.Generic;
 using System.Threading;
+using System.Runtime.InteropServices;
+using VB = Microsoft.VisualBasic;
+
+
+//[DllImport("user32.dll",EntryPoint = "FindWindowA")]
+//static extern int FindWindow(string lpClassName, string lpWindowName);
+
+//DllImport("user32.dll", EntryPoint = "SetWindowTextA")
+//static extern int SetWindowText(int hwnd, string lpString);
+
 
 namespace WindowsFormsApplication1
 {
+
     public partial class Form1 : Form
     {
         public Form1()
@@ -373,6 +384,32 @@ namespace WindowsFormsApplication1
         private void Form1_Resize(object sender, EventArgs e)
         {
             this.Text = this.Width + "  " + this.Height;
+        }
+
+        private void button12_Click(object sender, EventArgs e)
+        {
+            DialogResult v;
+            v = MessageBox.Show("是否提交试卷?", "询问", MessageBoxButtons.YesNo,
+                MessageBoxIcon.Question, MessageBoxDefaultButton.Button2);
+            if(v == DialogResult.Yes)
+            {
+                this.Text = "提交";
+            }
+            else if (v == DialogResult.No)
+            {
+                this.Text = "不提交";
+            }
+        }
+
+        private void button13_Click(object sender, EventArgs e)
+        {
+            string result = VB.Interaction.InputBox("请输入您的姓名:", "输入框");
+        }
+
+        private void button14_Click(object sender, EventArgs e)
+        {
+            Ucase U = new Ucase();
+            MessageBox.Show(U.countCapital("Microsoft Office PPT").ToString());
         }
 
 
