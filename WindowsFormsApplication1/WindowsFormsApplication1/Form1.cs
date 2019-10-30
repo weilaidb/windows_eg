@@ -256,7 +256,31 @@ namespace WindowsFormsApplication1
             obj = new Regex(@"world", RegexOptions.IgnoreCase);
             this.textBox1.Text = obj.Replace(this.textBox1.Text, "世界");
 
+        }
 
+        private void button4_Click(object sender, EventArgs e)
+        {
+            string Source = "中国国土面积960万平方公里，56个民族，13亿人口。";
+            Regex obj = new Regex(@"\d+", RegexOptions.IgnoreCase);
+            MatchCollection col = obj.Matches(Source);
+            foreach (Match m in col)
+            {
+                MessageBox.Show("\n位置：" + m.Index + "\n长度:" + m.Length
+                    + "\n值:" + m.Value);
+            }
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            string result = "";
+            string Source = "胡萝卜35公斤土豆231公斤西红柿25公斤白菜12345公斤";
+            Regex obj = new Regex(@"\d+公斤", RegexOptions.IgnoreCase);
+            string[] arr = obj.Split(Source);
+            foreach(string s in arr)
+            {
+                result += s + "\n";
+            }
+            MessageBox.Show(result);
         }
 
 
