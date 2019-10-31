@@ -55,7 +55,13 @@ namespace WindowsFormsApplication2
             try
             {
                 ExcelApp = (Excel.Application)Marshal.GetActiveObject("Excel.Application");
-                //MessageBox.Show("Excel的版本是：" + ExcelApp.Version + "");
+                if(((Excel.Worksheet)ExcelApp.ActiveSheet) == null)
+                {
+                    return;
+                }
+                MessageBox.Show("Excel的版本是：" + ExcelApp.ActiveSheet + "");
+
+                //button2_Click(sender, e);
 
                 ((Excel.Worksheet)ExcelApp.ActiveSheet).Name = "MysSheet";//重命名活动工作表
 
@@ -69,7 +75,7 @@ namespace WindowsFormsApplication2
             }
             catch(SystemException ex)
             {
-                //MessageBox.Show(ex.Message);
+                MessageBox.Show(ex.Message);
                 MessageBox.Show("请打开Excel文件");
             }
         }
@@ -89,10 +95,15 @@ namespace WindowsFormsApplication2
             }
             catch (SystemException ex)
             {
-                //MessageBox.Show(ex.Message);
+                MessageBox.Show(ex.Message);
                 MessageBox.Show("请打开Excel文件");
             }
 
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
 
 
