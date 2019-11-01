@@ -358,6 +358,46 @@ namespace WindowsFormsApplication2
 
         }
 
+        private void button16_Click(object sender, EventArgs e)
+        {
+            Excel.Worksheet wst2;
+            wst2 = (Excel.Worksheet)ExcelApp.ActiveSheet;
+            if (null == wst2)
+            {
+                PleaseOpenExcel();
+                return;
+            }
+            ClearResult();
+            wst2.SelectionChange += new Excel.DocEvents_SelectionChangeEventHandler(wst2_SelectionChange);
+
+            Excel.Worksheet wst3;
+
+            if(ExcelApp.ActiveWorkbook.Worksheets.Count < 3)
+            {
+                ShowBox("当前活动表的表数量" + ExcelApp.ActiveWorkbook.Worksheets.Count + ",请创建到3");
+                return;
+            }
+
+            wst3 = (Excel.Worksheet)ExcelApp.ActiveWorkbook.Worksheets[3];
+            if (null == wst3)
+            {
+                PleaseOpenExcel();
+                return;
+            }
+            //wst3.Activate();
+            //wst3.BeforeDoubleClick += new Excel.DocEvents_BeforeDoubleClickEventHandler(wst3_BeforeDoubleClick);
+        }
+
+        public void wst2_SelectionChange(Excel.Range Target)
+        {
+            Target.Interior.Color = System.Drawing.Color.Yellow;
+        }
+
+        public void wst3_BeforeDoubleClick(Excel.Range Target,  bool Cancel)
+        {
+            ShowBox("双击了工作表");
+        }
+
 
 
 
