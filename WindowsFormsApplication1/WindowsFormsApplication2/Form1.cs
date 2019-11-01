@@ -16,6 +16,7 @@ namespace WindowsFormsApplication2
     public partial class Form1 : Form
     {
         Excel.Application ExcelApp;
+        string result;
         public Form1()
         {
             InitializeComponent();
@@ -31,7 +32,10 @@ namespace WindowsFormsApplication2
             //获取正在运行的Excel
             try
             {
-                ExcelApp = (Excel.Application)Marshal.GetActiveObject("Excel.Application");
+                if (-1 == InstanceExcel())
+                {
+                    return;
+                }
                 MessageBox.Show("Excel的版本是：" + ExcelApp.Version + "");
             }
             catch(SystemException ex)
@@ -54,8 +58,7 @@ namespace WindowsFormsApplication2
             //获取正在运行的Excel
             try
             {
-                ExcelApp = (Excel.Application)Marshal.GetActiveObject("Excel.Application");
-                if(((Excel.Worksheet)ExcelApp.ActiveSheet) == null)
+                if (-1 == InstanceExcel())
                 {
                     return;
                 }
@@ -86,7 +89,11 @@ namespace WindowsFormsApplication2
             //获取正在运行的Excel
             try
             {
-                ExcelApp = (Excel.Application)Marshal.GetActiveObject("Excel.Application");
+                //ExcelApp = (Excel.Application)Marshal.GetActiveObject("Excel.Application");
+                if(-1 == InstanceExcel())
+                {
+                    return;
+                }
                 //MessageBox.Show("Excel的版本是：" + ExcelApp.Version + "");
                 ExcelApp.Undo();//Excel撤销，相当于按下Ctrl+Z
                 ExcelApp.Workbooks.Close();
@@ -105,6 +112,106 @@ namespace WindowsFormsApplication2
         {
             this.Close();
         }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            //ExcelApp.WorkbookBeforeClose += new Excel.AppEvents_SinkHelper
+        }
+
+        public void ApplicatoinObject()
+        {
+            //ExcelApp.WorkbookBeforeClose += new Excel.AppEvents_WorkbookBeforeCloseEventHandler();
+        }
+
+        public void ExcelApp_WorkbookBeforeClose(Excel.Workbook wbk, ref bool Cancel)
+        {
+            MessageBox.Show("即将关闭:" + wbk.FullName);
+            Cancel = true;//取消关闭
+        }
+
+        public void ExcelApp_SheetSelectionChange(object sh, Excel.Range Target)
+        {
+            Target.Interior.Color = System.Drawing.Color.Green;//改变鼠标所选区域底纹颜色
+        }
+
+        private void button7_Click(object sender, EventArgs e)
+        {
+            //MessageBox.Show(ExcelApp.Dialogs.Count + "");//Excel所有内置对话框个数
+            //foreach (Excel.AddIn adn in ExcelApp.AddIns)
+            //{
+            //    result += (adn.Name + "\t" + adn.Installed + "\n");
+            //}
+            //MessageBox.Show(ExcelApp.CommandBars.Count + "");
+            //foreach(Office cmb in ExcelApp.CommandBars)
+            //{
+            //    result += (cmb.Name)
+            //}
+        }
+
+        private void button8_Click(object sender, EventArgs e)
+        {
+            Excel.Workbook wbk;
+            if (-1 == InstanceExcel())
+            {
+                return;
+            }
+            wbk = ExcelApp.ActiveWorkbook;
+            //wbk = ExcelApp.Workbooks[1];
+            //wbk = ExcelApp.Workbooks["hello.xls"];
+
+            result = wbk.Worksheets.Count + "";
+            result = wbk.Sheets.Count + "";
+
+            //foreach(Excel.Workbook)
+
+
+        }
+
+        //示例化Excel对象
+        private int InstanceExcel()
+        {
+            ExcelApp = (Excel.Application)Marshal.GetActiveObject("Excel.Application");
+            if (null == ExcelApp)
+            {
+                ExcelApp = new Excel.Application();
+            }
+
+            if (null == ExcelApp)
+            {
+                return -1;
+            }
+            return 0;
+        }
+
+        private void button9_Click(object sender, EventArgs e)
+        {
+            Excel.Workbook wbk;
+            //打开已存在的工作簿，没有对象时创建一个对象
+            if( -1 == InstanceExcel())
+            {
+                return;
+            }
+
+            wbk = ExcelApp.Workbooks.Open(@"C:\Users\Administrator\Desktop\compare\a.xls");
+            result = wbk.FileFormat.ToString();
+
+            wbk = ExcelApp.Workbooks.Add();
+
+            wbk.SaveAs(@"C:\Users\Administrator\Desktop\compare\aa.xls");
+            wbk.Close(false, Type.Missing, Type.Missing);
+
+        }
+
+        private void button10_Click(object sender, EventArgs e)
+        {
+            string filePath = System.Environment.CurrentDirectory;
+            //MessageBox.Show("当前路径是:" + filePath);
+            System.Diagnostics.Process.Start("Explorer.exe", filePath);
+        }
+
+
+
+
 
 
     }
