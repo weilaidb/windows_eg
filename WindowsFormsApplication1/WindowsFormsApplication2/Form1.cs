@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using System.Runtime.InteropServices;
 using Excel = Microsoft.Office.Interop.Excel;
 using Office = Microsoft.Office.Interop;
+using 获取主机所有的硬件信息;
 
 namespace WindowsFormsApplication2
 {
@@ -396,6 +397,17 @@ namespace WindowsFormsApplication2
         public void wst3_BeforeDoubleClick(Excel.Range Target,  bool Cancel)
         {
             ShowBox("双击了工作表");
+        }
+
+        private void button17_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button18_Click(object sender, EventArgs e)
+        {
+            MachineInfoManage info = new MachineInfoManage();
+            ShowBox(MachineInfoManage.GetMachineInfoPub());
         }
 
 
