@@ -1,0 +1,173 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" DefaultTargets="Build">
+  <PropertyGroup>
+    <ProjectType>Local</ProjectType>
+    <ProductVersion>7.10.3077</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{45CB2332-4D45-427C-8F7F-72F88A1EC3D6}</ProjectGuid>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ApplicationIcon>App.ico</ApplicationIcon>
+    <AssemblyKeyContainerName />
+    <AssemblyName>WindowsApplication2</AssemblyName>
+    <AssemblyOriginatorKeyFile />
+    <DefaultClientScript>JScript</DefaultClientScript>
+    <DefaultHTMLPageLayout>Grid</DefaultHTMLPageLayout>
+    <DefaultTargetSchema>IE50</DefaultTargetSchema>
+    <DelaySign>false</DelaySign>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>WindowsApplication2</RootNamespace>
+    <RunPostBuildEvent>OnBuildSuccess</RunPostBuildEvent>
+    <StartupObject />
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <TargetFrameworkVersion>v2.0</TargetFrameworkVersion>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>0.0</OldToolsVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <OutputPath>bin\Debug\</OutputPath>
+    <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
+    <BaseAddress>285212672</BaseAddress>
+    <CheckForOverflowUnderflow>false</CheckForOverflowUnderflow>
+    <ConfigurationOverrideFile />
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DocumentationFile />
+    <DebugSymbols>true</DebugSymbols>
+    <FileAlignment>4096</FileAlignment>
+    <NoStdLib>false</NoStdLib>
+    <NoWarn />
+    <Optimize>false</Optimize>
+    <RegisterForComInterop>false</RegisterForComInterop>
+    <RemoveIntegerChecks>false</RemoveIntegerChecks>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <WarningLevel>4</WarningLevel>
+    <DebugType>full</DebugType>
+    <ErrorReport>prompt</ErrorReport>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <OutputPath>bin\Release\</OutputPath>
+    <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
+    <BaseAddress>285212672</BaseAddress>
+    <CheckForOverflowUnderflow>false</CheckForOverflowUnderflow>
+    <ConfigurationOverrideFile />
+    <DefineConstants>TRACE</DefineConstants>
+    <DocumentationFile />
+    <DebugSymbols>false</DebugSymbols>
+    <FileAlignment>4096</FileAlignment>
+    <NoStdLib>false</NoStdLib>
+    <NoWarn />
+    <Optimize>true</Optimize>
+    <RegisterForComInterop>false</RegisterForComInterop>
+    <RemoveIntegerChecks>false</RemoveIntegerChecks>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <WarningLevel>4</WarningLevel>
+    <DebugType>none</DebugType>
+    <ErrorReport>prompt</ErrorReport>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System">
+      <Name>System</Name>
+    </Reference>
+    <Reference Include="System.Data">
+      <Name>System.Data</Name>
+    </Reference>
+    <Reference Include="System.Drawing">
+      <Name>System.Drawing</Name>
+    </Reference>
+    <Reference Include="System.Windows.Forms">
+      <Name>System.Windows.Forms</Name>
+    </Reference>
+    <Reference Include="System.Xml">
+      <Name>System.XML</Name>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AboutDlg.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="BitmapBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="BitmapBoxDlg.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FindWindowDlg.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="IEManDlg.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MainFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PEViewDlg.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ProcessDetailDlg.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ProcessSelDlg.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="QQMsgtailDlg.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SendStringDlg.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TreeNodeEx.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="WinMineDlg.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Content Include="App.ico" />
+    <EmbeddedResource Include="AboutDlg.resx">
+      <DependentUpon>AboutDlg.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BitmapBox.resx">
+      <DependentUpon>BitmapBox.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BitmapBoxDlg.resx">
+      <DependentUpon>BitmapBoxDlg.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FindWindowDlg.resx">
+      <DependentUpon>FindWindowDlg.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FINDWND.CUR" />
+    <EmbeddedResource Include="IEManDlg.resx">
+      <DependentUpon>IEManDlg.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MainFrm.resx">
+      <DependentUpon>MainFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PEViewDlg.resx">
+      <DependentUpon>PEViewDlg.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ProcessDetailDlg.resx">
+      <DependentUpon>ProcessDetailDlg.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ProcessSelDlg.resx">
+      <DependentUpon>ProcessSelDlg.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="QQMsgtailDlg.resx">
+      <DependentUpon>QQMsgtailDlg.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SendStringDlg.resx">
+      <DependentUpon>SendStringDlg.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WinMineDlg.resx">
+      <DependentUpon>WinMineDlg.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PreBuildEvent />
+    <PostBuildEvent />
+  </PropertyGroup>
+</Project>
