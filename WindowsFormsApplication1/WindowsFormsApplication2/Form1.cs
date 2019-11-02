@@ -204,7 +204,16 @@ namespace WindowsFormsApplication2
         //示例化Excel对象
         private int InstanceExcel()
         {
-            ExcelApp = (Excel.Application)Marshal.GetActiveObject("Excel.Application");
+            try
+            {
+                ExcelApp = (Excel.Application)Marshal.GetActiveObject("Excel.Application");
+            }
+            catch(SystemException ex)
+            {
+                ShowBox("no excel opened");
+                return -1;
+            }
+            
             if (null == ExcelApp)
             {
                 ExcelApp = new Excel.Application();
