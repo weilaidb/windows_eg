@@ -419,6 +419,59 @@ namespace WindowsFormsApplication2
             ShowBox(MachineInfoManage.GetMachineInfoPub());
         }
 
+        private void button19_Click(object sender, EventArgs e)
+        {
+            Excel.Worksheet wst;
+            Excel.Range rg;
+            wst = (Excel.Worksheet)ExcelApp.ActiveSheet;
+            rg = wst.Range["B:D"];
+            rg.Select();
+            rg.Merge();
+            rg = wst.Range["B2"];
+            Excel.Range rg2 = rg.get_Resize(2, 2);
+            rg2.Select();
+
+
+        }
+
+        private void button20_Click(object sender, EventArgs e)
+        {
+            Excel.Worksheet wst;
+            Excel.Range rg;
+            wst = (Excel.Worksheet)ExcelApp.ActiveSheet;
+            rg = wst.Range["B2:Z100"];
+            int i = 0;
+            foreach(Excel.Range rg2 in rg.Cells)
+            {
+                i++;
+                rg2.Value = i;
+
+            }
+        }
+
+        private void button21_Click(object sender, EventArgs e)
+        {
+            int[,] arr = new int[3, 4];
+            for(int i = 0; i < 3; i++)
+            {
+                for(int j = 0; j < 4; j++)
+                {
+                    arr[i, j] = i * 10 + j;
+                }
+            }
+
+            Excel.Range rg = ExcelApp.Range["B2:E4"];
+            rg.Select();
+            rg.Value = arr;
+            object[,] arr2;
+            arr2 = (object[,])ExcelApp.Range["B2:E2"].Value2;//行向区域写入数组
+            arr2 = (object[,])ExcelApp.Range["B2:B4"].Value2;//列向区域写入数组
+            arr2 = (object[,])ExcelApp.Range["C3:E4"].Value2;//矩形区域写入数组
+
+
+        }
+
+
 
 
 
