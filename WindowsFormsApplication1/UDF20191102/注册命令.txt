@@ -1,0 +1,10 @@
+C:\Windows\Microsoft.NET\Framework\v4.0.30319>RegAsm /codebase "E:\tarbao\windo
+s_eg\WindowsFormsApplication1\UDF20191102\bin\Debug\UDF20191102.dll"
+Microsoft .NET Framework 程序集注册实用工具版本 4.7.2558.0
+(适用于 Microsoft .NET Framework 版本 4.7.2558.0)
+版权所有 (C) Microsoft Corporation。保留所有权利。
+
+RegAsm : warning RA0000 : 使用 /codebase 注册未签名的程序集可能会导致程序集妨碍
+可能在同一台计算机上安装的其他应用程序。/codebase 开关旨在仅用于已签名的程序集。
+请为您的程序集提供一个强名称并重新注册它。
+成功注册了类型
