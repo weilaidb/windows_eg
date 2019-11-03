@@ -210,7 +210,7 @@ namespace WindowsFormsApplication2
             }
             catch(SystemException ex)
             {
-                ShowBox("no excel opened");
+                ShowBox("no excel opened:" + ex.Message);
                 return -1;
             }
             
@@ -471,7 +471,52 @@ namespace WindowsFormsApplication2
 
         }
 
+        private void button22_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                //ExcelApp.CommandBars["cmd"].Delete();
+                //Microsoft.VisualStudio.CommandBars["cmd"]
+                //Microsoft.Office.Interop.Excel
+                //Commandba
+                //Microsoft.Office.
+            }
+            catch (SystemException ex)
+            {
+                ShowBox(ex.Message);
+            }
 
+
+
+            
+        }
+
+        private void button23_Click(object sender, EventArgs e)
+        {
+            return;
+            InstanceExcel();
+            Microsoft.Vbe.Interop.VBE vbe;
+            try
+            {
+                vbe = (Microsoft.Vbe.Interop.VBE)ExcelApp.VBE;
+
+            }
+            catch(SystemException ex)
+            {
+                ShowBox(ex.Message);
+                return;
+            }
+
+            Microsoft.Vbe.Interop.VBComponent vbc = vbe.ActiveVBProject.VBComponents.Add
+                (Microsoft.Vbe.Interop.vbext_ComponentType.vbext_ct_StdModule);
+            vbc.Name = "newModule";
+            vbc.CodeModule.InsertLines(1, "Sub Text()\n\t MsgBox 123\nEnd Sub");
+
+
+        }
+
+
+        
 
 
 
