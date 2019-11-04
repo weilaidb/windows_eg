@@ -85,7 +85,7 @@ namespace UDF20191102
 
         public int issonicethings(int num)
         {
-            return num;
+            return num * num;
         }
     }
 }
